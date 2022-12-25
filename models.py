@@ -16,10 +16,7 @@ warnings.filterwarnings("ignore")
 matplotlib.use("Qt5Agg")
 cat_feat_colors = ["#fd7f6f", "#7eb0d5", "#b2e061", "#bd7ebe", "#ffb55a", "#ffee65", "#beb9db", "#fdcce5", "#8bd3c7"]
 
-X = pd.read_csv("prepared_data/X_data.csv")
-y = pd.read_csv("prepared_data/y_data.csv")
-test = pd.read_csv("prepared_data/pre_test.csv")
-y = np.log1p(y).to_numpy().ravel()
+X, y, test = feature_engineering("datasets/train.csv", "datasets/test.csv")
 
 X_train, X_test, y_train, y_test = train_test_split(X,
                                                     y,
